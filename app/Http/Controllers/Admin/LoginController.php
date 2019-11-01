@@ -2,23 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-
-
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
-
     /**
      * Where to redirect admins after login.
      *
      * @var string
      */
     protected $redirectTo = '/admin';
-
     /**
      * Create a new controller instance.
      *
@@ -28,7 +24,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest:admin')->except('logout');
     }
-
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -36,7 +31,6 @@ class LoginController extends Controller
     {
         return view('admin.auth.login');
     }
-
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -56,10 +50,9 @@ class LoginController extends Controller
         }
         return back()->withInput($request->only('email', 'remember'));
     }
-
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function logout(Request $request)
     {
