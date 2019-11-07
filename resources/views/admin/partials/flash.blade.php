@@ -1,5 +1,3 @@
-<?php
-
 @php
     $errors = Session::get('error');
     $messages = Session::get('success');
