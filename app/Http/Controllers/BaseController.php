@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Traits\FlashMessages;
+use App\Traits\UploadAble;
 
 /**
  * Class BaseController
@@ -13,6 +14,7 @@ use App\Traits\FlashMessages;
 class BaseController extends Controller
 {
     use FlashMessages;
+    use UploadAble;
 
     protected $data = null;
 
