@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use Config;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Config;
 
 class Setting extends Model
 {
@@ -37,7 +37,7 @@ class Setting extends Model
     public static function set($key, $value = null)
     {
         $setting = new self();
-        $entry = $setting->where('key', $key)->findOrFail();
+        $entry = $setting->where('key', $key)->firstOrFail();
         $entry->value = $value;
         $entry->saveOrFail();
         Config::set('key', $value);
@@ -46,5 +46,4 @@ class Setting extends Model
         }
         return false;
     }
-
 }
