@@ -21,13 +21,22 @@ class SettingController extends BaseController
         $this->setPageTitle('Settings', 'Manage Settings');
         return view('admin.settings.index',
                     [
+                        // General settings
                         'siteName' => Setting::get('site_name'),
                         'siteTitle' => Setting::get('site_title'),
                         'siteEmail' => Setting::get('default_email_address'),
                         'currencyCode' => Setting::get('currency_code'),
                         'currencySymbol' => Setting::get('currency_symbol'),
+
+                        // Logo settings
                         'siteLogo' => Setting::get('site_logo'),
-                        'siteFavicon' => Setting::get('site_favicon')
+                        'siteFavicon' => Setting::get('site_favicon'),
+
+                        // Footer seo settings
+                        'footerCopyright' => Setting::get('footer_copyright_text'),
+                        'seoMetaTitle' => Setting::get('seo_meta_title'),
+                        'seoMetaDescription' => Setting::get('seo_meta_description'),
+
                     ]);
     }
 
