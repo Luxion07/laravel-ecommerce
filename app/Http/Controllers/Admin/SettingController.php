@@ -25,7 +25,9 @@ class SettingController extends BaseController
                         'siteTitle' => Setting::get('site_title'),
                         'siteEmail' => Setting::get('default_email_address'),
                         'currencyCode' => Setting::get('currency_code'),
-                        'currencySymbol' => Setting::get('currency_symbol')
+                        'currencySymbol' => Setting::get('currency_symbol'),
+                        'siteLogo' => Setting::get('site_logo'),
+                        'siteFavicon' => Setting::get('site_favicon')
                     ]);
     }
 

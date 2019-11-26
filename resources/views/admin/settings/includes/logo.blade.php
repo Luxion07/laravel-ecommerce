@@ -7,8 +7,8 @@
         <div class="tile-body">
             <div class="row">
                 <div class="col-3">
-                    @if (config('settings.site_logo') != null)
-                        <img src="{{ asset('storage/'.config('settings.site_logo')) }}" id="logoImg" style="width: 80px; height: auto;">
+                    @if ($siteLogo != null)
+                        <img src="{{ asset('storage/'.$siteLogo) }}" id="logoImg" style="width: 80px; height: auto;">
                     @else
                         <img src="https://via.placeholder.com/80x80?text=Placeholder+Image" id="logoImg" style="width: 80px; height: auto;">
                     @endif
@@ -22,8 +22,8 @@
             </div>
             <div class="row mt-4">
                 <div class="col-3">
-                    @if (config('settings.site_favicon') != null)
-                        <img src="{{ asset('storage/'.config('settings.site_favicon')) }}" id="faviconImg" style="width: 80px; height: auto;">
+                    @if ($siteFavicon != null)
+                        <img src="{{ asset('storage/'.$siteFavicon) }}" id="faviconImg" style="width: 80px; height: auto;">
                     @else
                         <img src="https://via.placeholder.com/80x80?text=Placeholder+Image" id="faviconImg" style="width: 80px; height: auto;">
                     @endif

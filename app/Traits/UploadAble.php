@@ -16,11 +16,14 @@ trait UploadAble
      */
     public function uploadOne(UploadedFile $file, $folder = null, $disk = 'public', $filename = null)
     {
-        $name = !is_null($filename) ? $filename : str_random(25);
-
+        if (!is_null($filename)) {
+            $name = $filename . "." . $file->getClientOriginalExtension();
+        } else {
+            $name = $file->getClientOriginalName();
+        }
         return $file->storeAs(
             $folder,
-            $name . "." . $file->getClientOriginalExtension(),
+            $name,
             $disk
         );
     }
