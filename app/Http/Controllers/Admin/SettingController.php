@@ -1,10 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\Models\Setting;
 use App\Traits\UploadAble;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Http\Controllers\BaseController;
+
 /**
  * Class SettingController
  * @package App\Http\Controllers\Admin
@@ -19,38 +22,47 @@ class SettingController extends BaseController
     public function index()
     {
         $this->setPageTitle('Settings', 'Manage Settings');
+
         return view('admin.settings.index',
-                    [
-                        // General settings
-                        'siteName' => Setting::get('site_name'),
-                        'siteTitle' => Setting::get('site_title'),
-                        'siteEmail' => Setting::get('default_email_address'),
-                        'currencyCode' => Setting::get('currency_code'),
-                        'currencySymbol' => Setting::get('currency_symbol'),
+            [
+                // General settings
+                'siteName'            => Setting::get('site_name'),
+                'siteTitle'           => Setting::get('site_title'),
+                'siteEmail'           => Setting::get('default_email_address'),
+                'currencyCode'        => Setting::get('currency_code'),
+                'currencySymbol'      => Setting::get('currency_symbol'),
 
-                        // Logo settings
-                        'siteLogo' => Setting::get('site_logo'),
-                        'siteFavicon' => Setting::get('site_favicon'),
+                // Logo settings
+                'siteLogo'            => Setting::get('site_logo'),
+                'siteFavicon'         => Setting::get('site_favicon'),
 
-                        // Footer seo settings
-                        'footerCopyright' => Setting::get('footer_copyright_text'),
-                        'seoMetaTitle' => Setting::get('seo_meta_title'),
-                        'seoMetaDescription' => Setting::get('seo_meta_description'),
+                // Footer seo settings
+                'footerCopyright'     => Setting::get('footer_copyright_text'),
+                'seoMetaTitle'        => Setting::get('seo_meta_title'),
+                'seoMetaDescription'  => Setting::get('seo_meta_description'),
 
-                        // Social links settings
-                        'socialFacebook' => Setting::get('social_facebook'),
-                        'socialTwitter' => Setting::get('social_twitter'),
-                        'socialInstagram' => Setting::get('social_instagram'),
-                        'socialLinkedin' => Setting::get('social_linkedin'),
+                // Social links settings
+                'socialFacebook'      => Setting::get('social_facebook'),
+                'socialTwitter'       => Setting::get('social_twitter'),
+                'socialInstagram'     => Setting::get('social_instagram'),
+                'socialLinkedin'      => Setting::get('social_linkedin'),
 
-                        // Analytics settings
-                        'googleAnalytics' => Setting::get('google_analytics'),
-                        'facebookPixels' => Setting::get('facebook_pixels'),
-                    ]);
+                // Analytics settings
+                'googleAnalytics'     => Setting::get('google_analytics'),
+                'facebookPixels'      => Setting::get('facebook_pixels'),
+
+                // Payment settings
+                'stripePaymentMethod' => Setting::get('stripe_payment_method'),
+                'stripeKey'           => Setting::get('stripe_key'),
+                'stripeSecretKey'     => Setting::get('stripe_secret_key'),
+                'paypalPaymentMethod' => Setting::get('paypal_payment_method'),
+                'paypalClientId'      => Setting::get('paypal_client_id'),
+                'paypalSecretId'      => Setting::get('paypal_secret_id'),
+            ]);
     }
 
     /**
-     * @param Request $request
+     * @param  Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request)
@@ -73,6 +85,7 @@ class SettingController extends BaseController
                 Setting::set($key, $value);
             }
         }
+
         return $this->responseRedirectBack('Settings updated successfully.', 'success');
     }
 }
