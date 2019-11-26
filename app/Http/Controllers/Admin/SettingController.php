@@ -37,6 +37,12 @@ class SettingController extends BaseController
                         'seoMetaTitle' => Setting::get('seo_meta_title'),
                         'seoMetaDescription' => Setting::get('seo_meta_description'),
 
+                        // Social links settings
+                        'socialFacebook' => Setting::get('social_facebook'),
+                        'socialTwitter' => Setting::get('social_twitter'),
+                        'socialInstagram' => Setting::get('social_instagram'),
+                        'socialLinkedin' => Setting::get('social_linkedin'),
+
                     ]);
     }
 
