@@ -43,6 +43,9 @@ class SettingController extends BaseController
                         'socialInstagram' => Setting::get('social_instagram'),
                         'socialLinkedin' => Setting::get('social_linkedin'),
 
+                        // Analytics settings
+                        'googleAnalytics' => Setting::get('google_analytics'),
+                        'facebookPixels' => Setting::get('facebook_pixels'),
                     ]);
     }
 
