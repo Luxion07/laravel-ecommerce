@@ -15,7 +15,7 @@
 // *
 // * @package \App\Repositories
 // */
-//class CategoryRepository extends BaseRepository implements CategoryContract
+//class CategoryReposi  tory extends BaseRepository implements CategoryContract
 //{
 //    use UploadAble;
 //
